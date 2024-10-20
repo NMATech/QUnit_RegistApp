@@ -1,11 +1,11 @@
-QUnit.module("Register From Testing", function (hooks) {
+QUnit.module("Modul Testing Register", function (hooks) {
   let message;
   hooks.beforeEach(() => {
-    document.getElementById("name").value;
-    document.getElementById("age").value;
-    document.getElementById("email").value;
-    document.getElementById("phone").value;
-    document.getElementById("passwword").value;
+    document.getElementById("name").value = "";
+    document.getElementById("age").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("passwword").value = "";
     message = document.getElementById("message").textContent;
   });
 
@@ -304,5 +304,70 @@ QUnit.module("Register From Testing", function (hooks) {
         );
       }
     });
+  });
+});
+
+QUnit.module("Modul Testing Login", function (hooks) {
+  let modalMessage, message;
+  hooks.beforeEach(() => {
+    document.getElementById("loginEmail");
+    document.getElementById("loginPassword");
+    modalMessage = document.getElementById("modalMessage");
+    message = document.getElementById("message");
+  });
+
+  QUnit.test("All fields are required", (assert) => {
+    const form = document.getElementById("formLogin");
+    const event = new Event("submit");
+
+    form.dispatchEvent(event);
+
+    assert.equal(
+      message,
+      "All fields are required",
+      "User can't login if the fields are empty"
+    );
+  });
+
+  QUnit.test("Login with valid credentials", (assert) => {
+    const data = {
+      email: "tobibrown@gmail.com",
+      password: "Password#123",
+    };
+
+    document.getElementById("loginEmail").value = data.email;
+    document.getElementById("loginPassword").value = data.password;
+
+    const form = document.getElementById("formLogin");
+    const event = new Event("submit");
+
+    form.dispatchEvent(event);
+
+    assert.equal(
+      message,
+      "Login Success!",
+      "Login should be success with valid credentials"
+    );
+  });
+
+  QUnit.test("Login with invalid credentials", (assert) => {
+    const data = {
+      email: "tobibrown@gmail.com",
+      password: "password123",
+    };
+
+    document.getElementById("loginEmail").value = data.email;
+    document.getElementById("loginPassword").value = data.password;
+
+    const form = document.getElementById("formLogin");
+    const event = new Event("submit");
+
+    form.dispatchEvent(event);
+
+    assert.equal(
+      message,
+      "Your email or password is wrong!",
+      "Login shouldn't be success with invalid credentials"
+    );
   });
 });
