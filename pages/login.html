@@ -4,39 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
+    <title>Login</title>
 
     <!-- CDN Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="">
     <section class="flex">
-      <section
-        class="hidden md:block relative w-[50%] h-screen rounded-tr-3xl rounded-br-3xl"
-      >
-        <section
-          class="absolute w-full h-full flex flex-col justify-center rounded-tr-3xl rounded-br-3xl bg-black bg-opacity-50 px-[50px]"
-        >
-          <h1
-            class="text-[30px] md:text-[50px] lg:text-[60px] font-semibold text-white"
-          >
-            Create your Account!
-          </h1>
-          <p class="text-white text-xl">Share your artwork and get project!</p>
-        </section>
-
-        <section class="w-full h-full">
-          <img
-            src="../assets/img/bg.jpg"
-            alt=""
-            class="w-full h-full bg-cover rounded-tr-3xl rounded-br-3xl"
-          />
-        </section>
-      </section>
-
-      <section class="w-full md:w-[50%] h-screen">
+      <section class="w-full flex flex-col justify-center md:w-[50%] h-screen">
         <div class="w-full flex justify-center items-center mt-[50px] p-3">
-          <h1 class="font-bold text-[40px]">Sign Up</h1>
+          <h1 class="font-bold text-[40px]">Sign In</h1>
         </div>
 
         <div class="mt-[20px]">
@@ -46,23 +23,8 @@
               class="w-[75%] md:w-[60%] mx-auto flex flex-col justify-center items-center gap-[30px] p-2"
             >
               <input
-                type="text"
-                placeholder="Name"
-                class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
-              />
-              <input
-                type="number"
-                placeholder="Age"
-                class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
-              />
-              <input
                 type="email"
                 placeholder="Email"
-                class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
-              />
-              <input
-                type="number"
-                placeholder="Phone"
                 class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
               />
               <input
@@ -74,15 +36,15 @@
               <section class="w-full flex flex-col gap-3">
                 <section class="w-full flex items-center gap-2">
                   <input type="checkbox" id="" class="w-5 h-5" />
-                  <p>Accept Term & Conditions</p>
+                  <p>Remember me</p>
                 </section>
 
                 <button
-                  id="btnRegister"
+                  id="btnLogin"
                   type="button"
                   class="w-full rounded-xl bg-blue-400 py-2 text-white hover:bg-blue-500"
                 >
-                  Register
+                  Login
                 </button>
               </section>
             </section>
@@ -91,13 +53,38 @@
 
           <section class="w-[60%] mx-auto text-center">
             <p>
-              You have an account? Login
-              <a href="./login.html" class="hover:text-blue-400 hover:font-bold"
+              You don't have an account? Register
+              <a
+                href="./register.html"
+                class="hover:text-blue-400 hover:font-bold"
                 >Here</a
               >
             </p>
           </section>
         </div>
+      </section>
+
+      <section
+        class="hidden md:block relative w-[50%] h-screen rounded-tl-3xl rounded-bl-3xl"
+      >
+        <section
+          class="absolute w-full h-full flex flex-col justify-center items-end rounded-tl-3xl rounded-bl-3xl bg-black bg-opacity-50 px-[50px]"
+        >
+          <h1
+            class="text-[30px] md:text-[50px] lg:text-[60px] font-semibold text-white"
+          >
+            Login Account!
+          </h1>
+          <p class="text-white text-xl">Share your artwork and get project!</p>
+        </section>
+
+        <section class="w-full h-full">
+          <img
+            src="../assets/img/bg.jpg"
+            alt=""
+            class="w-full h-full bg-cover rounded-tl-3xl rounded-bl-3xl"
+          />
+        </section>
       </section>
     </section>
 
