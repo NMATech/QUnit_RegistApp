@@ -18,25 +18,29 @@
 
         <div class="mt-[20px]">
           <!-- Form -->
-          <form id="formRegister">
+          <form id="formLogin">
             <section
               class="w-[75%] md:w-[60%] mx-auto flex flex-col justify-center items-center gap-[30px] p-2"
             >
               <input
+                required
                 type="email"
+                id="email"
                 placeholder="Email"
                 class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
               />
               <section class="w-full relative flex">
                 <input
+                  required
                   type="password"
+                  id="password"
                   placeholder="Password"
                   class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
                 />
                 <button
                   type="button"
                   id="btnPassword"
-                  class="w-max mx-[24em] absolute inset-0 justify-self-end p-1"
+                  class="w-max mx-[13em] md:mx-[19em] lg:mx-[21em] xl:mx-[24em] absolute inset-0 justify-self-end p-1"
                 >
                   <img src="../assets/icon/view.png" alt="" id="iconPassword" />
                 </button>
@@ -50,7 +54,6 @@
 
                 <button
                   id="btnLogin"
-                  type="button"
                   class="w-full rounded-xl bg-blue-400 py-2 text-white hover:bg-blue-500"
                 >
                   Login
@@ -99,7 +102,7 @@
 
     <section
       class="hidden fixed inset-0 w-full justify-center items-center bg-black bg-opacity-50"
-      id="modalRegister"
+      id="modalLogin"
     >
       <section
         class="bg-white flex flex-col justify-center items-center rounded-xl max-w-[350px] h-[200px] px-5 py-2"
@@ -117,6 +120,6 @@
     </section>
 
     <!-- JS -->
-    <script src="../script/index.js"></script>
+    <script src="../script/login.js"></script>
   </body>
 </html>

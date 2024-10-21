@@ -84,7 +84,7 @@ const checkingValidation = () => {
   return true;
 };
 
-const register = (event) => {
+const register = () => {
   let users = JSON.parse(localStorage.getItem("users"));
 
   if (users) {
@@ -120,7 +120,7 @@ formRegister.addEventListener("submit", (event) => {
   }
 });
 
-document.getElementById("btnContinue").addEventListener("click", () => {
+btnContinue.addEventListener("click", () => {
   window.location.href = "../pages/login.html";
 });
 
