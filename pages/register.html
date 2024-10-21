@@ -46,30 +46,54 @@
               class="w-[75%] md:w-[60%] mx-auto flex flex-col justify-center items-center gap-[30px] p-2"
             >
               <input
+                required
                 type="text"
                 placeholder="Name"
+                id="name"
                 class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
               />
               <input
+                required
                 type="number"
                 placeholder="Age"
+                id="age"
                 class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
               />
               <input
+                required
                 type="email"
                 placeholder="Email"
+                id="email"
                 class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
               />
               <input
+                required
                 type="number"
                 placeholder="Phone"
+                id="phone"
                 class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
               />
-              <input
-                type="password"
-                placeholder="Password"
-                class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
-              />
+              <section class="w-full relative flex">
+                <input
+                  required
+                  type="password"
+                  id="password"
+                  placeholder="Password"
+                  class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
+                />
+                <button
+                  type="button"
+                  id="btnPassword"
+                  class="w-max mx-[13em] md:mx-[19em] lg:mx-[21em] xl:mx-[24em] absolute inset-0 justify-self-end p-1"
+                >
+                  <img src="../assets/icon/view.png" alt="" id="iconPassword" />
+                </button>
+              </section>
+              <section
+                class="mt-[-20px] flex justify-center items-start text-start"
+              >
+                <h1 id="message" class="text-red-500"></h1>
+              </section>
 
               <section class="w-full flex flex-col gap-3">
                 <section class="w-full flex items-center gap-2">
@@ -79,7 +103,6 @@
 
                 <button
                   id="btnRegister"
-                  type="button"
                   class="w-full rounded-xl bg-blue-400 py-2 text-white hover:bg-blue-500"
                 >
                   Register
@@ -123,6 +146,6 @@
     </section>
 
     <!-- JS -->
-    <script src="../script/index.js"></script>
+    <script type="module" src="../script/register.js"></script>
   </body>
 </html>
