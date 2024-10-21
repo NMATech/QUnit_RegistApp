@@ -9,7 +9,99 @@
   <body>
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
+
+    <form id="formRegister">
+      <section
+        class="w-[75%] md:w-[60%] mx-auto flex flex-col justify-center items-center gap-[30px] p-2"
+      >
+        <input
+          required
+          type="text"
+          placeholder="Name"
+          id="name"
+          class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
+        />
+        <input
+          required
+          type="number"
+          placeholder="Age"
+          id="age"
+          class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
+        />
+        <input
+          required
+          type="email"
+          placeholder="Email"
+          id="email"
+          class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
+        />
+        <input
+          required
+          type="number"
+          placeholder="Phone"
+          id="phone"
+          class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
+        />
+        <section class="w-full relative flex">
+          <input
+            required
+            type="password"
+            id="password"
+            placeholder="Password"
+            class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
+          />
+          <button
+            type="button"
+            id="btnPassword"
+            class="w-max mx-[13em] md:mx-[19em] lg:mx-[21em] xl:mx-[24em] absolute inset-0 justify-self-end p-1"
+          >
+            <img src="../assets/icon/view.png" alt="" id="iconPassword" />
+          </button>
+        </section>
+        <section class="mt-[-20px] flex justify-center items-start text-start">
+          <h1 id="message" class="text-red-500"></h1>
+        </section>
+
+        <section class="w-full flex flex-col gap-3">
+          <section class="w-full flex items-center gap-2">
+            <input type="checkbox" id="" class="w-5 h-5" />
+            <p>Accept Term & Conditions</p>
+          </section>
+
+          <button
+            id="btnRegister"
+            class="w-full rounded-xl bg-blue-400 py-2 text-white hover:bg-blue-500"
+          >
+            Register
+          </button>
+        </section>
+      </section>
+    </form>
+
+    <!-- Modal register success -->
+    <section
+      class="hidden fixed inset-0 w-full justify-center items-center bg-black bg-opacity-50"
+      id="modalRegister"
+    >
+      <section
+        class="bg-white flex flex-col justify-center items-center rounded-xl max-w-[350px] h-[200px] px-5 py-2"
+      >
+        <h1 class="text-green-400 font-semibold text-[30px]">
+          Register Success!
+        </h1>
+        <p class="text-lg">Click button to continue!</p>
+        <button
+          type="button"
+          id="btnContinue"
+          class="bg-[#333] text-white px-8 py-2 rounded-xl mt-[20px] hover:bg-[#333]/70"
+        >
+          Continue
+        </button>
+      </section>
+    </section>
+
     <script src="https://code.jquery.com/qunit/qunit-2.22.0.js"></script>
+    <script src="./script/register.js"></script>
     <script src="test.js"></script>
   </body>
 </html>

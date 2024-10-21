@@ -36,6 +36,17 @@ const checkingValidation = () => {
     password: password.value,
   };
 
+  if (
+    dataInput.name === "" &&
+    dataInput.age === "" &&
+    dataInput.email === "" &&
+    dataInput.phone === "" &&
+    dataInput.password === ""
+  ) {
+    message.textContent = "All fields are required!";
+    return false;
+  }
+
   // Check name
   const num = "012345667889";
   if (dataInput.name.length > 35) {
@@ -53,7 +64,7 @@ const checkingValidation = () => {
 
   // Check age
   if (dataInput.age < 18 || dataInput.age > 45) {
-    message.textContent = "Your age should be between 18 and 45!";
+    message.textContent = "Your age should be at least around 18 - 45!";
     return false;
   }
 
@@ -69,7 +80,7 @@ const checkingValidation = () => {
     message.textContent = "Your number should be around 10 - 13 characters!";
     return false;
   }
-  const phonePattern = /^'08'+[0-9]$/;
+  const phonePattern = /^08\d{8,12}$/;
   if (!phonePattern.test(dataInput.phone)) {
     message.textContent = "Your number format doesn't acceptable!";
     return false;
