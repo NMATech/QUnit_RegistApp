@@ -74,6 +74,14 @@ const checkingValidation = () => {
     message.textContent = "Your email format should be @gmail.com!";
     return false;
   }
+  // Periksa apakah email sudah terdaftar
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const emailExists = users.some((user) => user.email === dataInput.email);
+
+  if (emailExists) {
+    message.textContent = "Your email already registered!";
+    return false;
+  }
 
   // Check phone
   if (dataInput.phone.length < 10 || dataInput.phone.length > 13) {

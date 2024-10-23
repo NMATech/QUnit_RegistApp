@@ -25,7 +25,7 @@
               <input
                 required
                 type="email"
-                id="email"
+                id="emailLogin"
                 placeholder="Email"
                 class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
               />
@@ -33,17 +33,23 @@
                 <input
                   required
                   type="password"
-                  id="password"
+                  id="passwordLogin"
                   placeholder="Password"
                   class="w-full border border-slate-400 p-1 h-[40px] rounded-xl placeholder:text-[#333]"
                 />
                 <button
                   type="button"
-                  id="btnPassword"
-                  class="w-max mx-[13em] md:mx-[19em] lg:mx-[21em] xl:mx-[24em] absolute inset-0 justify-self-end p-1"
+                  id="btnEye"
+                  class="w-max mx-[15em] md:mx-[19em] lg:mx-[21em] xl:mx-[24em] absolute inset-0 justify-self-end p-1"
                 >
-                  <img src="../assets/icon/view.png" alt="" id="iconPassword" />
+                  <img src="../assets/icon/view.png" alt="" id="iconEye" />
                 </button>
+              </section>
+
+              <section
+                class="mt-[-20px] flex justify-center items-start text-start"
+              >
+                <h1 id="messageLogin" class="text-red-500"></h1>
               </section>
 
               <section class="w-full flex flex-col gap-3">
@@ -111,7 +117,7 @@
         <p class="text-lg">Click button to continue!</p>
         <button
           type="button"
-          id="btnContinue"
+          id="btnRedirect"
           class="bg-[#333] text-white px-8 py-2 rounded-xl mt-[20px] hover:bg-[#333]/70"
         >
           Continue

@@ -316,67 +316,74 @@ QUnit.module("Module Register", function (hooks) {
   });
 });
 
-// QUnit.module("Modul Testing Login", function (hooks) {
-//   let modalMessage, message;
-//   hooks.beforeEach(() => {
-//     document.getElementById("loginEmail");
-//     document.getElementById("loginPassword");
-//     modalMessage = document.getElementById("modalMessage");
-//     message = document.getElementById("message");
-//   });
+QUnit.module("Modul Testing Login", function (hooks) {
+  let messageLogin, modalLogin;
 
-//   QUnit.test("All fields are required", (assert) => {
-//     const form = document.getElementById("formLogin");
-//     const event = new Event("submit");
+  hooks.beforeEach(() => {
+    messageLogin = document.getElementById("messageLogin");
+    modalLogin = document.getElementById("modalLogin");
+    document.getElementById("emailLogin").value = "";
+    document.getElementById("passwordLogin").value = "";
+    messageLogin.textContent = ""; // Reset message before each test
+  });
 
-//     form.dispatchEvent(event);
+  QUnit.test("All fields are required", (assert) => {
+    const form = document.getElementById("formLogin");
+    const event = new Event("submit");
 
-//     assert.equal(
-//       message,
-//       "All fields are required",
-//       "User can't login if the fields are empty"
-//     );
-//   });
+    form.dispatchEvent(event);
 
-//   QUnit.test("Login with valid credentials", (assert) => {
-//     const data = {
-//       email: "tobibrown@gmail.com",
-//       password: "Password#123",
-//     };
+    assert.equal(
+      messageLogin.textContent,
+      "All fields are required!",
+      "User can't login if the fields are empty"
+    );
+  });
 
-//     document.getElementById("loginEmail").value = data.email;
-//     document.getElementById("loginPassword").value = data.password;
+  QUnit.test("Login with valid credentials", (assert) => {
+    const data = {
+      email: "tobibrown@gmail.com",
+      password: "Password#123",
+    };
 
-//     const form = document.getElementById("formLogin");
-//     const event = new Event("submit");
+    document.getElementById("emailLogin").value = data.email;
+    document.getElementById("passwordLogin").value = data.password;
 
-//     form.dispatchEvent(event);
+    const form = document.getElementById("formLogin");
+    const event = new Event("submit");
 
-//     assert.equal(
-//       message,
-//       "Login Success!",
-//       "Login should be success with valid credentials"
-//     );
-//   });
+    form.dispatchEvent(event);
 
-//   QUnit.test("Login with invalid credentials", (assert) => {
-//     const data = {
-//       email: "tobibrown@gmail.com",
-//       password: "password123",
-//     };
+    assert.ok(
+      localStorage.getItem("user"),
+      `Login should be succeed for this data ${JSON.stringify(
+        data
+      )}, and localstorage with key user should exist`
+    );
+    assert.ok(
+      modalLogin.classList.contains("flex"),
+      `After login success, modal success should appear`
+    );
+  });
 
-//     document.getElementById("loginEmail").value = data.email;
-//     document.getElementById("loginPassword").value = data.password;
+  QUnit.test("Login with invalid credentials", (assert) => {
+    const data = {
+      email: "tobibrown@gmail.com",
+      password: "password123",
+    };
 
-//     const form = document.getElementById("formLogin");
-//     const event = new Event("submit");
+    document.getElementById("emailLogin").value = data.email;
+    document.getElementById("passwordLogin").value = data.password;
 
-//     form.dispatchEvent(event);
+    const form = document.getElementById("formLogin");
+    const event = new Event("submit");
 
-//     assert.equal(
-//       message,
-//       "Your email or password is wrong!",
-//       "Login shouldn't be success with invalid credentials"
-//     );
-//   });
-// });
+    form.dispatchEvent(event);
+
+    assert.equal(
+      messageLogin.textContent,
+      "Your email and password doesn't match!",
+      "Login shouldn't be success with invalid credentials"
+    );
+  });
+});

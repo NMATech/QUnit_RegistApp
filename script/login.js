@@ -1,11 +1,12 @@
-const btnPassword = document.getElementById("btnPassword");
+const btnEye = document.getElementById("btnEye");
 const btnLogin = document.getElementById("btnLogin");
-const btnContinue = document.getElementById("btnContinue");
-const iconPassword = document.getElementById("iconPassword");
+const btnRedirect = document.getElementById("btnRedirect");
+const iconEye = document.getElementById("iconEye");
 const modalLogin = document.getElementById("modalLogin");
 
-const email = document.getElementById("email");
-const password = document.getElementById("password");
+const emailLogin = document.getElementById("emailLogin");
+const passwordLogin = document.getElementById("passwordLogin");
+const messageLogin = document.getElementById("messageLogin");
 const formLogin = document.getElementById("formLogin");
 
 const showModalLogin = () => {
@@ -20,9 +21,17 @@ const showModalLogin = () => {
 
 const login = () => {
   const users = JSON.parse(localStorage.getItem("users"));
+  let isValid = false;
 
-  users.map((user) => {
-    if (email.value === user.email && password.value === user.password) {
+  if (!emailLogin.value || !passwordLogin.value) {
+    messageLogin.textContent = "All fields are required!";
+  }
+
+  users.forEach((user) => {
+    if (
+      emailLogin.value === user.email &&
+      passwordLogin.value === user.password
+    ) {
       const data = {
         name: user.name,
         age: user.age,
@@ -32,22 +41,27 @@ const login = () => {
       };
 
       localStorage.setItem("user", JSON.stringify(data));
+      isValid = true;
       showModalLogin();
     }
   });
+
+  if (!isValid) {
+    messageLogin.textContent = "Your email and password doesn't match!";
+  }
 };
 
-btnPassword.addEventListener("click", () => {
-  if (password.type === "password") {
-    password.type = "text";
-    iconPassword.src = "../assets/icon/hide.png";
+btnEye.addEventListener("click", () => {
+  if (passwordLogin.type === "password") {
+    passwordLogin.type = "text";
+    iconEye.src = "../assets/icon/hide.png";
   } else {
-    password.type = "password";
-    iconPassword.src = "../assets/icon/view.png";
+    passwordLogin.type = "password";
+    iconEye.src = "../assets/icon/view.png";
   }
 });
 
-btnContinue.addEventListener("click", () => {
+btnRedirect.addEventListener("click", () => {
   window.location.href = "../index.html";
 });
 
