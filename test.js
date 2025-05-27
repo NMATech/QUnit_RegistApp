@@ -331,6 +331,9 @@ QUnit.module("Modul Testing Login", function (hooks) {
     const form = document.getElementById("formLogin");
     const event = new Event("submit");
 
+    document.getElementById("emailLogin").value = "";
+    document.getElementById("passwordLogin").value = "";
+
     form.dispatchEvent(event);
 
     assert.equal(

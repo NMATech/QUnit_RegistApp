@@ -23,10 +23,19 @@ const login = () => {
   const users = JSON.parse(localStorage.getItem("users"));
   let isValid = false;
 
+  // Validasi field kosong
   if (!emailLogin.value || !passwordLogin.value) {
     messageLogin.textContent = "All fields are required!";
+    return;
   }
 
+  // Jika data users tidak ditemukan
+  if (!users || users.length === 0) {
+    messageLogin.textContent = "No registered users found!";
+    return;
+  }
+
+  // Cek email dan password
   users.forEach((user) => {
     if (
       emailLogin.value === user.email &&
