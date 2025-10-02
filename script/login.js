@@ -4,7 +4,7 @@ const btnRedirect = document.getElementById("btnRedirect");
 const iconEye = document.getElementById("iconEye");
 const modalLogin = document.getElementById("modalLogin");
 
-const emailLogin = document.getElementById("emailLogin");
+const usernameLogin = document.getElementById("usernameLogin");
 const passwordLogin = document.getElementById("passwordLogin");
 const messageLogin = document.getElementById("messageLogin");
 const formLogin = document.getElementById("formLogin");
@@ -24,7 +24,7 @@ const login = () => {
   let isValid = false;
 
   // Validasi field kosong
-  if (!emailLogin.value || !passwordLogin.value) {
+  if (!usernameLogin.value || !passwordLogin.value) {
     messageLogin.textContent = "All fields are required!";
     return;
   }
@@ -35,10 +35,10 @@ const login = () => {
     return;
   }
 
-  // Cek email dan password
+  // Cek username dan password
   users.forEach((user) => {
     if (
-      emailLogin.value === user.email &&
+      usernameLogin.value === user.name &&
       passwordLogin.value === user.password
     ) {
       const data = {
@@ -56,7 +56,7 @@ const login = () => {
   });
 
   if (!isValid) {
-    messageLogin.textContent = "Your email and password doesn't match!";
+    messageLogin.textContent = "Your username and password doesn't match!";
   }
 };
 
